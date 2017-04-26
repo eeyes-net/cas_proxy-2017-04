@@ -1,0 +1,5 @@
+{
+    "require": {
+        "ganlvtech/php-simple-cas-proxy": "2.0"
+    }
+}
