@@ -84,7 +84,11 @@ class MyPhpCasProxy extends PhpCasProxy
     public function logout()
     {
         if (empty($_GET['service'])) {
-            $_GET['service'] = $_SERVER['HTTP_REFERER'];
+            if (empty($_GET['url'])) {
+                $_GET['service'] = $_SERVER['HTTP_REFERER'];
+            } else {
+                $_GET['service'] = $_GET['url'];
+            }
         }
         if ($this->filterService()) {
             return $this->logoutWithRedirect();
